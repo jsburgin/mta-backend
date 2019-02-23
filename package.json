@@ -10,7 +10,8 @@
     "clean": "./node_modules/.bin/gts clean",
     "compile": "tsc -p .",
     "fix": "gts fix",
-    "precommit": "npm run check && npm run fix && npm run test"
+    "precommit": "npm run check && npm run fix && npm run test",
+    "prepush": "./build-scripts/prepush.sh"
   },
   "author": "Joshua Burgin <hi@joshburgin.io> (https://joshburgin.io)",
   "license": "GNU GPLv3",
@@ -63,7 +64,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run prepush"
+      "pre-commit": "npm run precommit",
+      "pre-push": "npm run prepush"
     }
   }
 }
